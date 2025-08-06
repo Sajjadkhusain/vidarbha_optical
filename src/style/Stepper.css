@@ -14,7 +14,7 @@
 }
 
 .card-header {
-  background: #4a6bff;
+  background: linear-gradient(to right, #db3131, #bb5959);
   color: white;
   padding: 1.5rem;
   text-align: center;
@@ -222,7 +222,21 @@
 .items-list li:last-child {
   margin-bottom: 0;
 }
-
+.nextBtn {
+  background: linear-gradient(to right, #db3131, #bb5959);
+}
+.backBtn {
+  background: #f0f0f0;
+  color: black;
+}
+.backBtn:hover {
+  background: linear-gradient(to right, #db3131, #bb5959);
+  color: #fff;
+}
+.plsOrder {
+  background: linear-gradient(to right, #db3131, #bb5959);
+  color: #fff;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .order-review-table {

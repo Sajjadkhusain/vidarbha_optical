@@ -96,7 +96,7 @@
 
 .checkout-btn {
   padding: 0.75rem 1.5rem;
-  background: #007bff;
+  background: linear-gradient(to right, #db3131, #bb5959);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -107,7 +107,7 @@
 }
 
 .checkout-btn:hover {
-  background: #0056b3;
+  background: linear-gradient(to right, #db3131, #bb5959);
 }
 
 /* Responsive Styles */

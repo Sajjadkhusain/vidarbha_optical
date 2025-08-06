@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import "../style/Stepper.css";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const CheckoutPage = () => {
+  const navigate = useNavigate();
   const { cartItems } = useContext(AppContext);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
@@ -83,10 +85,10 @@ const CheckoutPage = () => {
                 <div className="form-actions">
                   <button
                     type="button"
-                    className="btn next-btn"
+                    className="btn nextBtn"
                     onClick={nextStep}
                   >
-                    Next
+                    <span style={{ color: "white" }}>Next</span>
                   </button>
                 </div>
               </>
@@ -116,17 +118,17 @@ const CheckoutPage = () => {
                 <div className="form-actions">
                   <button
                     type="button"
-                    className="btn back-btn"
+                    className="btn backBtn"
                     onClick={prevStep}
                   >
                     Back
                   </button>
                   <button
                     type="button"
-                    className="btn next-btn"
+                    className="btn nextBtn"
                     onClick={nextStep}
                   >
-                    Next
+                    <span style={{ color: "white" }}>Next</span>
                   </button>
                 </div>
               </>
@@ -177,12 +179,16 @@ const CheckoutPage = () => {
                 <div className="form-actions">
                   <button
                     type="button"
-                    className="btn back-btn"
+                    className="btn backBtn"
                     onClick={prevStep}
                   >
                     Back
                   </button>
-                  <button type="submit" className="btn submit-btn">
+                  <button
+                    type="submit"
+                    className="btn plsOrder"
+                    onClick={() => navigate("/")}
+                  >
                     Place Order
                   </button>
                 </div>
