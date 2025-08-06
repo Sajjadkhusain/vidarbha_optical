@@ -1,0 +1,25 @@
+/* src/components/OfferBanner.css */
+
+.offer-banner {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  animation: slideIn 1s ease-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

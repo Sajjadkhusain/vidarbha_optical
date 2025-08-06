@@ -1,0 +1,75 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Sort + Filter Bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #f0f4f8;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  margin: 24px 0;
+}
+
+.sort-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sort-bar label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.sort-bar select {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.sort-bar select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Grid for Product Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sort-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sort-group {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .sort-bar select {
+    width: 100%;
+  }
+}
+.sort-group > div {
+  width: 100%; /* react-select renders a <div>, this ensures it takes full width */
+}
