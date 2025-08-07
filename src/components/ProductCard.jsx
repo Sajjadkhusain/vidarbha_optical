@@ -13,14 +13,23 @@ const ProductCard = ({ product }) => {
   return (
     <motion.div
       className="product-card"
-      whileHover={{ scale: 1.03 }}
-      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.2 }}
     >
-      <img src={product.image} alt={product.name} className="product-img" />
+      <div className="product-img-container">
+        <img src={product.image} alt={product.name} className="product-img" />
+      </div>
 
       <div className="product-info">
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-price">₹{product.price}</p>
+
+        <div className="product-price-group">
+          {product.originalPrice && (
+            <span className="original-price">₹{product.originalPrice}</span>
+          )}
+          <span className="discounted-price">₹{product.price}</span>
+        </div>
+
         <p className="product-desc">{product.description}</p>
       </div>
 

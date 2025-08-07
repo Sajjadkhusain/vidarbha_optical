@@ -3,11 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background: linear-gradient(
-    to right,
-    #db3131,
-    #bb5959
-  ); /* ✅ Use background */
+  background: linear-gradient(to right, #db3131, #bb5959);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
