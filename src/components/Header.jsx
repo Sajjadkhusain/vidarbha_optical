@@ -37,7 +37,7 @@ const Header = () => {
             </div>
           </Link>
 
-          <div
+          {/* <div
             className="icon-link user-icon"
             onClick={() => setShowDropdown(!showDropdown)}
             onMouseLeave={() => setShowDropdown(false)}
@@ -51,7 +51,7 @@ const Header = () => {
                 <Link to="/create-account">Create Account</Link>
               </div>
             )}
-          </div>
+          </div> */}
         </nav>
       </div>
     </header>
