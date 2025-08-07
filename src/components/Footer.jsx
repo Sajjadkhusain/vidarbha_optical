@@ -40,19 +40,26 @@ const Footer = () => (
       <div className="footer-section social">
         <h3>Follow Us</h3>
         <div className="social-icons">
-          <a href="#" className="social-icon facebook" aria-label="Facebook">
+          {/* <a href="#" className="social-icon facebook" aria-label="Facebook">
             <FontAwesomeIcon icon={faFacebook} />
-          </a>
-          {/* <a href="#" className="social-icon instagram" aria-label="Instagram">
-            <FontAwesomeIcon icon={faInstagram} />
           </a> */}
           <a
-            href="https://www.instagram.com/khansajjad55/"
+            href="https://www.facebook.com/Sajjad Khan"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
           </a>
+          <a
+            href="https://www.instagram.com/khansajjad55/"
+            className="social-icon instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+
           <a
             href="https://wa.me/919518717844?text=Hello, How Can I Help You?"
             target="_blank"
