@@ -43,8 +43,15 @@ const Footer = () => (
           <a href="#" className="social-icon facebook" aria-label="Facebook">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="#" className="social-icon instagram" aria-label="Instagram">
+          {/* <a href="#" className="social-icon instagram" aria-label="Instagram">
             <FontAwesomeIcon icon={faInstagram} />
+          </a> */}
+          <a
+            href="https://www.instagram.com/khansajjad55/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
           </a>
           <a
             href="https://wa.me/919518717844?text=Hello, How Can I Help You?"
