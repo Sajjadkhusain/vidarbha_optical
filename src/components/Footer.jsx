@@ -25,13 +25,13 @@ const Footer = () => (
           />{" "}
           +91 9518717844
         </p>
-        <p>📧 sajjadhusiankhan78@gmail.com</p>
+        <p>📧 Vidharbhaoptical@gmail.com</p>
       </div>
 
       {/* Address Section */}
       <div className="footer-section address">
         <h3>Address</h3>
-        <p>Opposite Gopal Milk Dairy, Mohammad Ali Road, Akola 444006</p>
+        <p>Near Y S Garage, Mohammad Ali Road, Akola 444006</p>
         <p>🕒 Hours: 10:30 AM – 8:30 PM</p>
         <p>🗓 Monday to Sunday</p>
       </div>
