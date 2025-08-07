@@ -51,7 +51,7 @@ const Footer = () => (
           </a>
 
           <a
-            href="https://www.instagram.com/khansajjad55/"
+            href="https://www.instagram.com/Vidharbh opticals/"
             className="social-icon instagram"
             target="_blank"
             rel="noopener noreferrer"
