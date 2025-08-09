@@ -19,13 +19,12 @@ const WishlistPage = () => {
       {!hasItems ? (
         <div className="empty-card">
           <h2 className="wish-title">🖤 Your Wishlist</h2>
-          <h3>No items in your wishlist</h3>
-          <p>Start exploring and add your favorites!</p>
+          <p className="wishlist-empty">Your wishlist is empty.</p>
         </div>
       ) : (
         <div className="grid">
           {wishlistItems.map((item) => (
-            <div key={item.id} className="product-card">
+            <div key={item.id} className="product-card products">
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
               <p>₹{item.price}</p>

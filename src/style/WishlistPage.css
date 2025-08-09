@@ -98,10 +98,19 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.products button {
+  background-color: #e60023;
+}
 
-/* .product-card button:hover {
+.products button:hover {
   background-color: #c9001b;
-} */
+}
+.wishlist-empty {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 2rem;
+}
 
 /* Mobile responsive */
 @media (max-width: 600px) {
