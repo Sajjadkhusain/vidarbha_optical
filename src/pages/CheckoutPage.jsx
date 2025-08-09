@@ -9,6 +9,7 @@ const CheckoutPage = () => {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     name: "",
+    mobileNo: "",
     email: "",
     address: "",
     payment: "cod",
@@ -18,6 +19,7 @@ const CheckoutPage = () => {
     e.preventDefault();
     const orderSummary = `
     Name: ${form.name}
+    Mobile:${form.mobileNo}
     Email: ${form.email}
     Address: ${form.address}
     Payment: ${form.payment}
@@ -70,15 +72,24 @@ const CheckoutPage = () => {
                 <input
                   className="form-input"
                   required
-                  placeholder="Your Name"
+                  placeholder="Enter Your Name"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
                 <input
                   className="form-input"
                   required
+                  placeholder="Enter Mobile Number"
+                  value={form.mobileNo}
+                  onChange={(e) =>
+                    setForm({ ...form, mobileNo: e.target.value })
+                  }
+                />
+                <input
+                  className="form-input"
+                  required
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="Enter Email Address"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
@@ -142,6 +153,10 @@ const CheckoutPage = () => {
                       <tr>
                         <th>Name:</th>
                         <td>{form.name}</td>
+                      </tr>
+                      <tr>
+                        <th>Mobile No:</th>
+                        <td>{form.mobileNo}</td>
                       </tr>
                       <tr>
                         <th>Email:</th>
