@@ -8,7 +8,11 @@ export const products = [
     image: "/assets/img/4.jpg",
     category: "aviator",
     gender: "men",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 2,
@@ -18,8 +22,12 @@ export const products = [
     description: "Comfortable wrap-around sunglasses for sports.",
     image: "/assets/img/3.jpg",
     category: "sport",
-    inStock: true,
     gender: "men",
+    inStock: true,
+    rating: {
+      average: 4.5,
+      count: 5,
+    },
   },
 
   {
@@ -32,6 +40,10 @@ export const products = [
     category: "fashion",
     gender: "men",
     inStock: true,
+    rating: {
+      average: 5,
+      count: 5,
+    },
   },
   {
     id: 4,
@@ -42,7 +54,11 @@ export const products = [
     image: "/assets/img/5.jpg",
     category: "aviator",
     gender: "man",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 5,
@@ -53,7 +69,11 @@ export const products = [
     image: "/assets/img/7.jpg",
     category: "retro",
     gender: "men",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
   {
     id: 6,
@@ -64,7 +84,11 @@ export const products = [
     image: "/assets/img/9.jpg",
     category: "fashion",
     gender: "men",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
   {
     id: 7,
@@ -75,7 +99,11 @@ export const products = [
     image: "/assets/img/11.jpg",
     gender: "men",
     category: "sport",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 8,
@@ -87,6 +115,10 @@ export const products = [
     category: "fashion",
     gender: "men",
     inStock: true,
+    rating: {
+      average: 4.5,
+      count: 5,
+    },
   },
   {
     id: 9,
@@ -98,6 +130,10 @@ export const products = [
     category: "fashion",
     gender: "men",
     inStock: true,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 10,
@@ -108,7 +144,11 @@ export const products = [
     image: "/assets/img/2.jpg",
     category: "retro",
     gender: "women",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
   {
     id: 11,
@@ -120,6 +160,10 @@ export const products = [
     category: "sport",
     gender: "women",
     inStock: true,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
 
   {
@@ -132,6 +176,10 @@ export const products = [
     category: "fashion",
     gender: "women",
     inStock: true,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 13,
@@ -143,6 +191,10 @@ export const products = [
     category: "aviator",
     gender: "women",
     inStock: true,
+    rating: {
+      average: 5,
+      count: 5,
+    },
   },
 
   {
@@ -154,7 +206,11 @@ export const products = [
     image: "/assets/img/2.jpg",
     category: "retro",
     gender: "women",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 5,
+      count: 5,
+    },
   },
 
   {
@@ -167,6 +223,10 @@ export const products = [
     category: "fashion",
     gender: "child",
     inStock: true,
+    rating: {
+      average: 4.5,
+      count: 5,
+    },
   },
   {
     id: 16,
@@ -177,7 +237,11 @@ export const products = [
     image: "/assets/img/child2.jpg",
     category: "fashion",
     gender: "child",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 17,
@@ -188,7 +252,11 @@ export const products = [
     image: "/assets/img/child3.jpg",
     category: "fashion",
     gender: "child",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
   {
     id: 18,
@@ -200,6 +268,10 @@ export const products = [
     category: "fashion",
     gender: "child",
     inStock: true,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
   {
     id: 19,
@@ -210,7 +282,11 @@ export const products = [
     image: "/assets/img/child5.jpg",
     category: "fashion",
     gender: "child",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 5,
+      count: 5,
+    },
   },
   {
     id: 20,
@@ -221,7 +297,11 @@ export const products = [
     image: "/assets/img/child6.jpg",
     category: "fashion",
     gender: "child",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 3.5,
+      count: 5,
+    },
   },
   {
     id: 21,
@@ -232,7 +312,11 @@ export const products = [
     image: "/assets/img/child7.jpg",
     category: "fashion",
     gender: "child",
-    inStock: true,
+    inStock: false,
+    rating: {
+      average: 4.5,
+      count: 5,
+    },
   },
   {
     id: 22,
@@ -244,6 +328,10 @@ export const products = [
     category: "fashion",
     gender: "child",
     inStock: true,
+    rating: {
+      average: 5,
+      count: 5,
+    },
   },
   {
     id: 23,
@@ -255,5 +343,9 @@ export const products = [
     category: "fashion",
     gender: "child",
     inStock: true,
+    rating: {
+      average: 2.5,
+      count: 5,
+    },
   },
 ];

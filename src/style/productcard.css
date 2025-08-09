@@ -57,3 +57,35 @@
 .product-actions .icon {
   font-size: 1rem;
 }
+
+/*Rating*/
+.rating-container {
+  padding-bottom: 3px;
+}
+
+.star {
+  color: #ddd;
+  font-size: 16px;
+}
+
+.star.filled {
+  color: #ffc107;
+}
+
+.star.half-filled {
+  color: #ffc107;
+  position: relative;
+}
+
+.rating-average {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+  color: #333;
+}
+
+.rating-count {
+  font-size: 12px;
+  color: #666;
+  margin-left: 4px;
+}

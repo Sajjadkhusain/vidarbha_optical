@@ -1,7 +1,15 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { motion } from "framer-motion";
-import { FaRegHeart, FaShoppingCart, FaTrash, FaHeart } from "react-icons/fa";
+import {
+  FaRegHeart,
+  FaShoppingCart,
+  FaTrash,
+  FaStarHalfAlt,
+  FaStar,
+  FaHeart,
+  FaRegStar,
+} from "react-icons/fa";
 import "../style/productcard.css";
 
 const ProductCard = ({ product }) => {
@@ -9,6 +17,31 @@ const ProductCard = ({ product }) => {
     useContext(AppContext);
 
   const isWishlisted = wishlistItems.some((item) => item.id === product.id);
+  const renderStarRating = (rating) => {
+    if (typeof rating !== "number") return null;
+
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+
+    // Full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={`full-${i}`} className="star filled" />);
+    }
+
+    // Half star
+    if (hasHalfStar) {
+      stars.push(<FaStarHalfAlt key="half" className="star half-filled" />);
+    }
+
+    // Empty stars
+    const emptyStars = 5 - stars.length;
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<FaRegStar key={`empty-${i}`} className="star" />);
+    }
+
+    return <div className="stars">{stars}</div>;
+  };
 
   return (
     <motion.div
@@ -44,13 +77,18 @@ const ProductCard = ({ product }) => {
 
         <p className="product-desc">{product.description}</p>
       </div>
+      <div className="rating-container">
+        {renderStarRating(product.rating?.average || 0)}
+      </div>
       <div className="product-actions">
         <button
-          className="btn success"
-          onClick={() => addToCart(product)}
-          title="Add to Cart"
+          className={`btn success ${!product.inStock ? "disabled" : ""}`}
+          onClick={() => product.inStock && addToCart(product)}
+          title={product.inStock ? "Add to Cart" : "Out of Stock"}
+          disabled={!product.inStock}
         >
-          <FaShoppingCart className="icon" /> Add to Cart
+          <FaShoppingCart className="icon" />
+          {product.inStock ? "Add to Cart" : "Out of Stock"}
         </button>
       </div>
     </motion.div>
