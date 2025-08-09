@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { motion } from "framer-motion";
-import { FaRegHeart, FaShoppingCart, FaTrash } from "react-icons/fa";
+import { FaRegHeart, FaShoppingCart, FaTrash, FaHeart } from "react-icons/fa";
 import "../style/productcard.css";
 
 const ProductCard = ({ product }) => {
@@ -18,6 +18,17 @@ const ProductCard = ({ product }) => {
     >
       <div className="product-img-container">
         <img src={product.image} alt={product.name} className="product-img" />
+        <button
+          className="wishlist-icon-top"
+          onClick={() =>
+            isWishlisted
+              ? removeFromWishlist(product.id)
+              : addToWishlist(product)
+          }
+          title={isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+        >
+          {isWishlisted ? <FaHeart className="wishlisted" /> : <FaRegHeart />}
+        </button>
       </div>
 
       <div className="product-info">
@@ -26,39 +37,21 @@ const ProductCard = ({ product }) => {
         <div className="product-price-group">
           {product.originalPrice && (
             <span className="original-price">₹{product.originalPrice}</span>
-          )}
+          )}{" "}
+          &nbsp;
           <span className="discounted-price">₹{product.price}</span>
         </div>
 
         <p className="product-desc">{product.description}</p>
       </div>
-
       <div className="product-actions">
         <button
-          className="btn-icon success"
+          className="btn success"
           onClick={() => addToCart(product)}
           title="Add to Cart"
         >
-          <FaShoppingCart />
+          <FaShoppingCart className="icon" /> Add to Cart
         </button>
-
-        {isWishlisted ? (
-          <button
-            className="btn-icon danger"
-            onClick={() => removeFromWishlist(product.id)}
-            title="Remove from Wishlist"
-          >
-            <FaTrash />
-          </button>
-        ) : (
-          <button
-            className="btn-icon"
-            onClick={() => addToWishlist(product)}
-            title="Add to Wishlist"
-          >
-            <FaRegHeart />
-          </button>
-        )}
       </div>
     </motion.div>
   );

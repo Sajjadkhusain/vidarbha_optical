@@ -89,7 +89,7 @@
 }
 
 .product-card button {
-  background-color: #e60023;
+  /* background-color: #e60023; */
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -99,9 +99,9 @@
   transition: background-color 0.3s ease;
 }
 
-.product-card button:hover {
+/* .product-card button:hover {
   background-color: #c9001b;
-}
+} */
 
 /* Mobile responsive */
 @media (max-width: 600px) {
