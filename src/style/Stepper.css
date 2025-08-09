@@ -321,3 +321,155 @@
   opacity: 0.7;
   cursor: not-allowed;
 }
+
+/* Update these styles in your Stepper.css file */
+
+/* Form input styling */
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%; /* This ensures full width */
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* This includes padding in width calculation */
+}
+
+/* Form group styling - add this if not already present */
+.form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* For the select dropdown arrow positioning */
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+}
+
+/* For the textarea */
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Error styling */
+.form-input.error,
+.form-textarea.error {
+  border-color: #ff3333;
+}
+
+.error-message {
+  color: #ff3333;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+/* Add these styles to your existing Stepper.css */
+
+/* Stepper progress indicator */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.stepper::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.step span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.step.active span {
+  background: linear-gradient(to right, #db3131, #bb5959);
+}
+
+.step p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+.step.active p {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Form label styling */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Button improvements */
+.btn {
+  min-width: 120px;
+  text-align: center;
+}
+
+.nextBtn,
+.plsOrder {
+  background: linear-gradient(to right, #db3131, #bb5959);
+  color: white;
+  border: none;
+}
+
+.backBtn {
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+}
+
+.backBtn:hover {
+  background: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stepper {
+    margin-top: 1rem;
+  }
+
+  .step p {
+    font-size: 0.7rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+}
