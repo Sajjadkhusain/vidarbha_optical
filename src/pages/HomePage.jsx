@@ -60,11 +60,11 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="grid">
+      {/* <div className="grid">
         {sortedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
