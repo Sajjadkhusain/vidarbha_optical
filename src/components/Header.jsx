@@ -14,7 +14,7 @@ const Header = () => {
         <div className="logo-container">
           <Link to="/" className="logo">
             <span className="logo-icon">🕶️</span>
-            <span className="logo-text">Vidharbha Optical</span>
+            <span className="logo-text">VIDHARBHA OPTICAL</span>
           </Link>
         </div>
 
