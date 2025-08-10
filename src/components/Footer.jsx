@@ -41,7 +41,7 @@ const Footer = () => (
         <h3>Follow Us</h3>
         <div className="social-icons">
           <a
-            href="https://www.facebook.com/JunaidShaikh"
+            href="https://www.facebook.com/Junaid Shaikh"
             // href="#"
             target="_blank"
             rel="noopener noreferrer"
