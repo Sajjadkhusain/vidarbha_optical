@@ -1,4 +1,4 @@
-/* Stepper.css */
+/* Checkout Container Styles */
 .checkout-container {
   max-width: 800px;
   margin: 2rem auto;
@@ -25,31 +25,91 @@
   font-size: 1.8rem;
 }
 
-.card-header p {
-  margin: 0.5rem 0 0;
-  opacity: 0.9;
-  font-size: 1rem;
-}
-
 .card-body {
   padding: 2rem;
 }
 
+/* Stepper Styles */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.stepper::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.step span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.step.active span {
+  background: linear-gradient(to right, #db3131, #bb5959);
+}
+
+.step-label {
+  color: white;
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Form Styles */
 .step-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
+.form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
 .form-input,
 .form-textarea,
 .form-select {
-  /* width: 100%; */
+  width: 100%;
   padding: 12px 15px;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s;
+  box-sizing: border-box;
 }
 
 .form-input:focus,
@@ -72,103 +132,60 @@
   background-size: 0.65rem auto;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+.error-message {
+  color: #ff3333;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
 }
 
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
+.form-input.error,
+.form-textarea.error {
+  border-color: #ff3333;
 }
 
-.next-btn {
-  background: #4a6bff;
-  color: white;
-  margin-left: auto;
+/* PhonePe Payment Styles */
+.phonepe-container {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
 }
 
-.next-btn:hover {
-  background: #3a5bef;
+.phonepe-info {
+  text-align: center;
 }
 
-.back-btn {
-  background: #f0f0f0;
-  color: #333;
-}
-
-.back-btn:hover {
-  background: #e0e0e0;
-}
-
-.submit-btn {
-  background: #28a745;
-  color: white;
-}
-
-.submit-btn:hover {
-  background: #218838;
-}
-
-/* Review order styles */
-.step-form h4 {
-  margin-top: 0;
-  color: #333;
-  font-size: 1.4rem;
-}
-
-.step-form p {
-  margin: 0.5rem 0;
+.phonepe-info p {
+  margin-bottom: 1rem;
   color: #555;
-  line-height: 1.6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .checkout-container {
-    padding: 0 0.5rem;
-  }
-
-  .card-body {
-    padding: 1.5rem;
-  }
-
-  .form-actions {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .btn {
-    width: 100%;
-  }
+.phonepe-image-container {
+  max-width: 300px;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 480px) {
-  .card-header h2 {
-    font-size: 1.5rem;
-  }
-
-  .card-header p {
-    font-size: 0.9rem;
-  }
-
-  .card-body {
-    padding: 1rem;
-  }
-
-  .form-input,
-  .form-textarea,
-  .form-select {
-    padding: 10px 12px;
-  }
+.phonepe-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-/**/
+
+.phonepe-instructions {
+  font-size: 0.9rem;
+  color: #666;
+  background: #f0f0f0;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-top: 1rem !important;
+}
+
 /* Review Order Styles */
 .review-title {
   margin-bottom: 1.5rem;
@@ -222,22 +239,144 @@
 .items-list li:last-child {
   margin-bottom: 0;
 }
-.nextBtn {
-  background: linear-gradient(to right, #db3131, #bb5959);
+
+/* Button Styles */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
-.backBtn {
-  background: #f0f0f0;
-  color: black;
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 120px;
+  text-align: center;
 }
-.backBtn:hover {
-  background: linear-gradient(to right, #db3131, #bb5959);
-  color: #fff;
-}
+
+.nextBtn,
 .plsOrder {
   background: linear-gradient(to right, #db3131, #bb5959);
-  color: #fff;
+  color: white;
 }
-/* Responsive adjustments */
+
+.backBtn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.backBtn:hover {
+  background: #e0e0e0;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Toast Notification Styles */
+.Toastify__toast {
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Toastify__toast--success {
+  background-color: #4bb543;
+  color: white;
+}
+
+.Toastify__toast--error {
+  background-color: #ff3333;
+  color: white;
+}
+
+.Toastify__toast-body {
+  font-size: 14px;
+}
+
+.Toastify__toast-body h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Toastify__toast-body p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .checkout-container {
+    padding: 0 0.5rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .stepper {
+    margin-top: 1rem;
+  }
+
+  .step-label {
+    font-size: 0.8rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .phonepe-container {
+    padding: 1rem;
+  }
+
+  .phonepe-image-container {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .step-label {
+    font-size: 0.7rem;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    padding: 10px 12px;
+  }
+
+  .phonepe-image-container {
+    max-width: 200px;
+    padding: 0.8rem;
+  }
+
+  .phonepe-instructions {
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive Table Adjustments */
 @media (max-width: 768px) {
   .order-review-table {
     display: block;
@@ -280,215 +419,5 @@
 
   .items-list {
     padding-left: 15px;
-  }
-}
-/*Toastify msg*/
-
-/* Toast styling */
-.Toastify__toast {
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.Toastify__toast--success {
-  background-color: #4bb543;
-  color: white;
-}
-
-.Toastify__toast--error {
-  background-color: #ff3333;
-  color: white;
-}
-
-.Toastify__toast-body {
-  font-size: 14px;
-}
-
-.Toastify__toast-body h4 {
-  margin: 0 0 5px 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.Toastify__toast-body p {
-  margin: 0;
-  opacity: 0.9;
-}
-
-/* Disabled button state */
-.btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-/* Update these styles in your Stepper.css file */
-
-/* Form input styling */
-.form-input,
-.form-textarea,
-.form-select {
-  width: 100%; /* This ensures full width */
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
-  box-sizing: border-box; /* This includes padding in width calculation */
-}
-
-/* Form group styling - add this if not already present */
-.form-group {
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-/* For the select dropdown arrow positioning */
-.form-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.7rem top 50%;
-  background-size: 0.65rem auto;
-}
-
-/* For the textarea */
-.form-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/* Error styling */
-.form-input.error,
-.form-textarea.error {
-  border-color: #ff3333;
-}
-
-.error-message {
-  color: #ff3333;
-  font-size: 0.8rem;
-  margin-top: 0.3rem;
-  display: block;
-}
-/* Add these styles to your existing Stepper.css */
-
-/* Stepper progress indicator */
-.stepper {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-  position: relative;
-}
-
-.stepper::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #e0e0e0;
-  z-index: 1;
-}
-.step-label {
-  color: white;
-  margin: 0.5rem 0 0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* For active step */
-.step.active .step-label {
-  color: white;
-}
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.step span {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #e0e0e0;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.step.active span {
-  background: linear-gradient(to right, #db3131, #bb5959);
-}
-
-.step p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #666;
-  text-align: center;
-}
-
-.step.active p {
-  color: #333;
-  font-weight: 500;
-}
-
-/* Form label styling */
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #333;
-}
-
-/* Button improvements */
-.btn {
-  min-width: 120px;
-  text-align: center;
-}
-
-.nextBtn,
-.plsOrder {
-  background: linear-gradient(to right, #db3131, #bb5959);
-  color: white;
-  border: none;
-}
-
-.backBtn {
-  background: #f0f0f0;
-  color: #333;
-  border: none;
-}
-
-.backBtn:hover {
-  background: #e0e0e0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .stepper {
-    margin-top: 1rem;
-  }
-  .step-label {
-    font-size: 0.8rem;
-  }
-
-  .step p {
-    font-size: 0.7rem;
-  }
-
-  .form-group label {
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 480px) {
-  .step-label {
-    font-size: 0.7rem;
   }
 }

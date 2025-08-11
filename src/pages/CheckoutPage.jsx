@@ -94,12 +94,25 @@ const CheckoutPage = () => {
       return;
     }
 
+    if (form.payment === "phonepe") {
+      const isConfirmed = window.confirm(
+        "Have you completed the PhonePe payment? Please ensure payment is done before confirming."
+      );
+      if (!isConfirmed) return;
+    }
+
     const orderSummary = `
       Name: ${form.name}
       Mobile: ${form.mobileNo}
       Email: ${form.email}
       Address: ${form.address}
-      Payment: ${form.payment}
+      Payment: ${
+        form.payment === "cod"
+          ? "Cash on Delivery"
+          : form.payment === "phonepe"
+          ? "PhonePe"
+          : "Online Payment"
+      }
       Items: ${cartItems.map((i) => i.name).join(", ")}
     `;
 
@@ -255,9 +268,29 @@ const CheckoutPage = () => {
                     }
                   >
                     <option value="cod">Cash on Delivery</option>
-                    <option value="prepaid">Online Payment</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="prepaid">Other Online Payment</option>
                   </select>
                 </div>
+
+                {form.payment === "phonepe" && (
+                  <div className="phonepe-container">
+                    <div className="phonepe-info">
+                      <p>Pay securely using PhonePe</p>
+                      <div className="phonepe-image-container">
+                        <img
+                          src="assets/img/phon-logo.png"
+                          alt="PhonePe Payment"
+                          className="phonepe-image"
+                        />
+                      </div>
+                      <p className="phonepe-instructions">
+                        Scan the QR code or use UPI ID: yourstore@phonepe
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 <div className="form-actions">
                   <button
                     type="button"
@@ -304,6 +337,8 @@ const CheckoutPage = () => {
                         <td>
                           {form.payment === "cod"
                             ? "Cash on Delivery"
+                            : form.payment === "phonepe"
+                            ? "PhonePe"
                             : "Online Payment"}
                         </td>
                       </tr>
