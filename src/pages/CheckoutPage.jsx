@@ -279,7 +279,7 @@ const CheckoutPage = () => {
                       <p>Pay securely using PhonePe</p>
                       <div className="phonepe-image-container">
                         <img
-                          src="assets/img/QR.jpeg"
+                          src="assets/img/QR.jpg"
                           alt="PhonePe Payment"
                           className="phonepe-image"
                         />
