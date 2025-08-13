@@ -25,6 +25,9 @@ export const AppProvider = ({ children }) => {
   const removeFromWishlist = (id) => {
     setWishlistItems(wishlistItems.filter((item) => item.id !== id));
   };
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   return (
     <AppContext.Provider
@@ -35,9 +38,15 @@ export const AppProvider = ({ children }) => {
         addToWishlist,
         removeFromCart,
         removeFromWishlist,
+        clearCart,
+        setCartItems,
       }}
     >
       {children}
     </AppContext.Provider>
   );
+};
+export const clearCart = () => {
+  // This is just for demonstration - you probably don't need this export
+  // The function is already available through the context
 };
