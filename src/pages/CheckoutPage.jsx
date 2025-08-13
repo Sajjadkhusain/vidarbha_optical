@@ -268,7 +268,7 @@ const CheckoutPage = () => {
                     id="address"
                     className={`form-textarea ${errors.address ? "error" : ""}`}
                     required
-                    placeholder="Enter complete delivery address"
+                    placeholder="Enter Complete Delivery Address"
                     value={form.address}
                     onChange={(e) =>
                       setForm({ ...form, address: e.target.value })
