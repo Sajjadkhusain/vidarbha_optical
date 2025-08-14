@@ -165,6 +165,7 @@ export const products = [
       count: 5,
     },
   },
+  /*Women */
   {
     id: 12,
     name: "ROBUST THIN EYEWEAR",
