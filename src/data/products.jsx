@@ -111,7 +111,7 @@ export const products = [
     price: 699,
     originalPrice: 1199.99,
     description: "Switch your view in a snap",
-    image: "/assets/img/Knight.jpEg",
+    image: "/assets/img/Knight.jpeg",
     category: "fashion",
     gender: "men",
     inStock: true,
