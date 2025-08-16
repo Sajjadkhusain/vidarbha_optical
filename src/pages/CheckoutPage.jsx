@@ -116,54 +116,6 @@ const CheckoutPage = () => {
     }
   };
 
-  // Email sending function
-  // const sendOrderConfirmation = async () => {
-  //   const orderId = `ORD-${Date.now().toString().slice(-6)}`;
-  //   const orderDate = new Date().toLocaleDateString("en-US", {
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //   });
-
-  //   const orderItems = cartItems.map((item) => ({
-  //     name: item.name,
-  //     quantity: item.quantity || 1,
-  //     price: item.price ? `₹${item.price.toFixed(2)}` : "N/A",
-  //     total: item.price
-  //       ? `₹${(item.price * (item.quantity || 1)).toFixed(2)}`
-  //       : "N/A",
-  //   }));
-
-  //   const templateParams = {
-  //     to_name: form.name,
-  //     to_email: form.email,
-  //     order_id: orderId,
-  //     order_date: orderDate,
-  //     customer_name: form.name,
-  //     customer_email: form.email,
-  //     customer_phone: form.mobileNo,
-  //     delivery_address: form.address.replace(/\n/g, "<br>"),
-  //     payment_method:
-  //       form.payment === "cod"
-  //         ? "Cash on Delivery"
-  //         : form.payment === "phonepe"
-  //         ? "PhonePe"
-  //         : "Online Payment",
-  //     order_items: orderItems,
-  //     total_amount: `₹${cartItems
-  //       .reduce((total, item) => total + item.price * (item.quantity || 1), 0)
-  //       .toFixed(2)}`,
-  //     eye_card: form.eyeCard ? form.eyeCard.name : "Not provided",
-  //   };
-
-  //   try {
-  //     await emailjs.send(serviceId, templateId, templateParams, userId);
-  //     return { success: true, orderId };
-  //   } catch (error) {
-  //     console.error("Email sending failed:", error);
-  //     return { success: false, orderId };
-  //   }
-  // };
   const sendOrderConfirmation = async () => {
     const orderId = `ORD-${Date.now().toString().slice(-6)}`;
     const orderDate = new Date().toLocaleDateString("en-US", {
@@ -257,8 +209,6 @@ const CheckoutPage = () => {
       } else {
         toast.error("Order placed but confirmation email failed to send");
       }
-
-      // Reset and redirect only if success
       if (success) {
         setForm({
           name: "",
@@ -278,59 +228,6 @@ const CheckoutPage = () => {
       setIsSubmitting(false);
     }
   };
-
-  // Form submission handler
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-
-  //   // Validate all steps
-  //   if (!validateStep1() || !validateStep2()) {
-  //     setStep(1);
-  //     toast.error("Please fix all errors before submitting");
-  //     setIsSubmitting(false);
-  //     return;
-  //   }
-
-  //   // Payment confirmation
-  //   if (form.payment === "phonepe") {
-  //     const isConfirmed = window.confirm(
-  //       "Have you completed the PhonePe payment? Please ensure payment is done before confirming."
-  //     );
-  //     if (!isConfirmed) {
-  //       setIsSubmitting(false);
-  //       return;
-  //     }
-  //   }
-
-  //   try {
-  //     const { success, orderId } = await sendOrderConfirmation();
-
-  //     if (!success) {
-  //       toast.warning("Order placed but confirmation email failed to send");
-  //     }
-
-  //     toast.success("Order placed successfully!");
-
-  //     // Reset and redirect
-  //     setForm({
-  //       name: "",
-  //       mobileNo: "",
-  //       email: "",
-  //       address: "",
-  //       payment: "cod",
-  //       eyeCard: null,
-  //     });
-  //     clearCart();
-  //     navigate("/");
-  //   } catch (error) {
-  //     console.error("Order submission error:", error);
-  //     toast.error("Failed to place order. Please try again.");
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
-
   // Calculate total amount
   const totalAmount = cartItems.reduce(
     (total, item) => total + item.price * (item.quantity || 1),
@@ -365,12 +262,12 @@ const CheckoutPage = () => {
             {step === 1 && (
               <div className="step-content">
                 <div className="form-group">
-                  <label htmlFor="name">Full Name*</label>
+                  <label htmlFor="name">Full Name</label>
                   <input
                     id="name"
                     name="name"
                     className={`form-input ${errors.name ? "error" : ""}`}
-                    placeholder="Enter your full name"
+                    placeholder="Enter Your Full Name"
                     value={form.name}
                     onChange={handleChange}
                   />
@@ -380,12 +277,12 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="mobileNo">Mobile Number*</label>
+                  <label htmlFor="mobileNo">Mobile Number</label>
                   <input
                     id="mobileNo"
                     name="mobileNo"
                     className={`form-input ${errors.mobileNo ? "error" : ""}`}
-                    placeholder="Enter 10-digit mobile number"
+                    placeholder="Enter 10-Digit Mobile Number"
                     value={form.mobileNo}
                     onChange={handleChange}
                     type="tel"
@@ -397,13 +294,13 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email Address*</label>
+                  <label htmlFor="email">Email Address</label>
                   <input
                     id="email"
                     name="email"
                     className={`form-input ${errors.email ? "error" : ""}`}
                     type="email"
-                    placeholder="Enter your email address"
+                    placeholder="Enter Your Email Address"
                     value={form.email}
                     onChange={handleChange}
                   />
@@ -429,12 +326,12 @@ const CheckoutPage = () => {
             {step === 2 && (
               <div className="step-content">
                 <div className="form-group">
-                  <label htmlFor="address">Delivery Address*</label>
+                  <label htmlFor="address">Delivery Address</label>
                   <textarea
                     id="address"
                     name="address"
                     className={`form-textarea ${errors.address ? "error" : ""}`}
-                    placeholder="Enter complete delivery address with landmark"
+                    placeholder="Enter Complete Delivery Address With Landmark"
                     value={form.address}
                     onChange={handleChange}
                     rows="4"
@@ -445,7 +342,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="eyeCard">Upload Eye Card (Image/PDF)*</label>
+                  <label htmlFor="eyeCard">Upload Eye Card (Image/PDF)</label>
                   <div className="file-upload-container">
                     <label htmlFor="eyeCard" className="file-upload-label">
                       <div className="file-upload-box">
@@ -504,7 +401,7 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="payment">Payment Method*</label>
+                  <label htmlFor="payment">Payment Method</label>
                   <select
                     id="payment"
                     name="payment"
@@ -513,8 +410,8 @@ const CheckoutPage = () => {
                     onChange={handleChange}
                   >
                     <option value="cod">Cash on Delivery</option>
-                    <option value="phonepe">PhonePe</option>
-                    <option value="prepaid">Other Online Payment</option>
+                    {/* <option value="phonepe">PhonePe</option>
+                    <option value="prepaid">Other Online Payment</option> */}
                   </select>
                 </div>
 
@@ -524,7 +421,7 @@ const CheckoutPage = () => {
                       <p>Pay securely using PhonePe</p>
                       <div className="phonepe-image-container">
                         <img
-                          src="/assets/img/QR.jpg"
+                          src="/assets/img/phon-logo.png"
                           alt="PhonePe Payment"
                           className="phonepe-image"
                         />

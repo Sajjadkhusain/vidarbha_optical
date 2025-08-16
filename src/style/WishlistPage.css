@@ -99,11 +99,11 @@
   transition: background-color 0.3s ease;
 }
 .products button {
-  background-color: #e60023;
+  background-color: #dc3545;
 }
 
 .products button:hover {
-  background-color: #c9001b;
+  background-color: #dc3545;
 }
 .wishlist-empty {
   text-align: center;
