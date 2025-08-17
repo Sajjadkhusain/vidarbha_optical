@@ -2,8 +2,8 @@ export const products = [
   {
     id: 1,
     name: "LIFE LINE",
-    price: 699,
-    originalPrice: 1200.0,
+    price: 1199,
+    originalPrice: 1699.0,
     description: "Shade your journey with confidence.",
     image: "/assets/img/mattzhang.jpeg",
     category: "aviator",
