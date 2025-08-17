@@ -5,7 +5,7 @@ export const products = [
     price: 699,
     originalPrice: 1200.0,
     description: "Shade your journey with confidence.",
-    image: "/assets/img/lifeline.jpeg",
+    image: "/assets/img/mattzhang.jpeg",
     category: "aviator",
     gender: "men",
     inStock: true,
