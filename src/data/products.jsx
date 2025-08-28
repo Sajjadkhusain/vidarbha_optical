@@ -141,7 +141,7 @@ export const products = [
     price: 899,
     originalPrice: 1599,
     description: "Minimalist design, maximum impact",
-    image: "/assets/img/adaptation.jpeg",
+    image: "/assets/img/man.jpeg",
     category: "fashion",
     gender: "men",
     inStock: true,
