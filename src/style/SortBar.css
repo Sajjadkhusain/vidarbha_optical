@@ -3,8 +3,6 @@
   max-width: 1200px;
   margin: auto;
 }
-
-/* Sort + Filter Bar */
 .sort-bar {
   display: flex;
   flex-wrap: wrap;
@@ -45,8 +43,6 @@
   border-color: #007bff;
   outline: none;
 }
-
-/* Grid for Product Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -71,5 +67,5 @@
   }
 }
 .sort-group > div {
-  width: 100%; /* react-select renders a <div>, this ensures it takes full width */
+  width: 100%;
 }

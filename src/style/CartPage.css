@@ -177,18 +177,18 @@
   height: 40px;
   background-color: #ffffff;
   color: black;
-  border-radius: 50%; /* Makes it circular */
+  border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   margin: 10px;
-  position: relative; /* Required for tooltip positioning */
+  position: relative;
 }
 
 .backtolist::after {
   content: "Back to list";
   position: absolute;
-  top: 100%; /* Position below the button */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 10px;
@@ -350,7 +350,7 @@
     font-size: 0.9rem;
   }
 }
-/* Alternative: Tooltip on bottom */
+
 .backtolist.tooltip-bottom::after {
   top: 100%;
   right: 50%;
@@ -367,7 +367,7 @@
   margin-right: 0;
   border-color: #333 transparent transparent transparent;
 }
-/* High contrast mode support */
+
 @media (prefers-contrast: high) {
   .backtolist {
     border: 2px solid #000;
@@ -385,7 +385,6 @@
   }
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .backtolist {
     transition: none;
