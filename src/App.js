@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigation,
+  useLocation,
+} from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,12 +14,60 @@ import CartPage from "./pages/CartPage";
 import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { ProductsProvider } from "./context/ProductsContext";
+import Loader from "./components/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
+// Custom hook to detect route changes
+const useRouteChangeLoader = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleStart = () => setIsLoading(true);
+    const handleComplete = () => setIsLoading(false);
+
+    // Simulate route change detection
+    handleStart();
+
+    const timer = setTimeout(() => {
+      handleComplete();
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [location]);
+
+  return isLoading;
+};
+
+// Component that uses the route change hook
+const RouteChangeHandler = ({ children }) => {
+  const isLoading = useRouteChangeLoader();
+
+  return (
+    <>
+      {isLoading && <Loader />}
+      {children}
+    </>
+  );
+};
+
 function App() {
+  const [initialLoading, setInitialLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitialLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (initialLoading) {
+    return <Loader />;
+  }
+
   return (
     <ProductsProvider>
       <AppProvider>
@@ -22,11 +76,46 @@ function App() {
             <Header />
             <main>
               <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/wishlist" element={<WishlistPage />} />
-                <Route path="/checkout" element={<CheckoutPage />} />
-                <Route path="/product/:id" element={<ProductDetailPage />} />
+                <Route
+                  path="/"
+                  element={
+                    <RouteChangeHandler>
+                      <HomePage />
+                    </RouteChangeHandler>
+                  }
+                />
+                <Route
+                  path="/cart"
+                  element={
+                    <RouteChangeHandler>
+                      <CartPage />
+                    </RouteChangeHandler>
+                  }
+                />
+                <Route
+                  path="/wishlist"
+                  element={
+                    <RouteChangeHandler>
+                      <WishlistPage />
+                    </RouteChangeHandler>
+                  }
+                />
+                <Route
+                  path="/checkout"
+                  element={
+                    <RouteChangeHandler>
+                      <CheckoutPage />
+                    </RouteChangeHandler>
+                  }
+                />
+                <Route
+                  path="/product/:id"
+                  element={
+                    <RouteChangeHandler>
+                      <ProductDetailPage />
+                    </RouteChangeHandler>
+                  }
+                />
               </Routes>
             </main>
             <Footer />

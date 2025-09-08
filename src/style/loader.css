@@ -1,0 +1,22 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(90deg, #db3131, #bb5959);
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+.loader-text {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
