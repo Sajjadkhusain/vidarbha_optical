@@ -40,6 +40,12 @@ function App() {
               pauseOnFocusLoss
               draggable
               pauseOnHover
+              theme="colored"
+              progressStyle={{ background: "#c34f4f" }}
+              toastStyle={{
+                background: "#c34f4f",
+                color: "white",
+              }}
             />
           </div>
         </Router>
