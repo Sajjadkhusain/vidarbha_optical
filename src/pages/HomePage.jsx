@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Select from "react-select"; // <-- import this
+import Select from "react-select";
 import ProductCard from "../components/ProductCard";
 import OfferBanner from "../components/OfferBanner";
 import ImageCarousel from "../components/ImageCarousel";

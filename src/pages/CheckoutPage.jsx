@@ -124,7 +124,6 @@ const CheckoutPage = () => {
       day: "numeric",
     });
 
-    // Format order items as a string with line breaks
     const orderItemsHTML = cartItems
       .map(
         (item) => `

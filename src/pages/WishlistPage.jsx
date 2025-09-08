@@ -22,9 +22,6 @@ const WishlistPage = () => {
 
       {!hasItems ? (
         <div className="">
-          {/* <Link to="/" className="backtolist">
-            <FaArrowLeft />
-          </Link> */}
           <h2 className="wish-title">🖤 Your Wishlist</h2>
           <p className="wishlist-empty">Your wishlist is empty.</p>
         </div>
