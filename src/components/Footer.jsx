@@ -40,15 +40,15 @@ const Footer = () => (
       <div className="footer-section social">
         <h3>Follow Us</h3>
         <div className="social-icons">
-          {/* <a
-            href="https://www.facebook.com/Junaid Shaikh"
+          <a
+            href="https://www.facebook.com/junaid.shaikh.336333"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon facebook"
             aria-label="Facebook"
           >
             <FontAwesomeIcon icon={faFacebook} />
-          </a> */}
+          </a>
 
           <a
             href="https://www.instagram.com/vidharbhaoptica/"
