@@ -169,9 +169,88 @@
   opacity: 0.9;
   transform: translateY(-2px);
 }
+.backtolist {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 50%; /* Makes it circular */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  position: relative; /* Required for tooltip positioning */
+}
 
+.backtolist::after {
+  content: "Back to list";
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #c64d4d;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.backtolist::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  margin-right: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.backtolist:hover::after,
+.backtolist:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.backtolist:hover {
+  background-color: #c25252;
+  transform: scale(1.05);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.backtolist:active {
+  transform: scale(0.95);
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .backtolist {
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+  }
+
+  .backtolist::after {
+    font-size: 11px;
+    padding: 5px 10px;
+    margin-right: 8px;
+  }
   .cart-item {
     flex-direction: column;
     align-items: flex-start;
@@ -214,6 +293,17 @@
 }
 
 @media (max-width: 480px) {
+  .backtolist {
+    width: 32px;
+    height: 32px;
+    margin: 6px;
+  }
+
+  /* Hide tooltip on very small screens to avoid layout issues */
+  .backtolist::after,
+  .backtolist::before {
+    display: none;
+  }
   .cart-container {
     padding: 1rem;
     margin: 1rem auto;
@@ -260,9 +350,32 @@
     font-size: 0.9rem;
   }
 }
+/* Alternative: Tooltip on bottom */
+.backtolist.tooltip-bottom::after {
+  top: 100%;
+  right: 50%;
+  transform: translateX(50%);
+  margin-top: 10px;
+  margin-right: 0;
+}
 
+.backtolist.tooltip-bottom::before {
+  top: 100%;
+  right: 50%;
+  transform: translateX(50%);
+  margin-top: 0;
+  margin-right: 0;
+  border-color: #333 transparent transparent transparent;
+}
 /* High contrast mode support */
 @media (prefers-contrast: high) {
+  .backtolist {
+    border: 2px solid #000;
+  }
+
+  .backtolist::after {
+    border: 2px solid #000;
+  }
   .quantity-btn {
     border: 2px solid #000;
   }
@@ -274,6 +387,18 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+  .backtolist {
+    transition: none;
+  }
+
+  .backtolist:hover {
+    transform: none;
+  }
+
+  .backtolist::after,
+  .backtolist::before {
+    transition: none;
+  }
   .cart-item {
     transition: none;
   }
