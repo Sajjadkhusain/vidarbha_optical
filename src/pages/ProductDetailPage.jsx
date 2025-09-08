@@ -562,7 +562,7 @@ const ProductDetailPage = () => {
           ))}
         </div>
 
-        <button className="view-all-reviews-btn">View All Reviews</button>
+        {/* <button className="view-all-reviews-btn">View All Reviews</button> */}
       </div>
     </div>
   );
