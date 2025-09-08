@@ -1,4 +1,3 @@
-// src/components/Invoice.js
 import React from "react";
 import "./Invoice.css";
 

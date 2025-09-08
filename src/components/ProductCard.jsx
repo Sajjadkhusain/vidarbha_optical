@@ -90,20 +90,6 @@ const ProductCard = ({ product }) => {
       <div className="rating-container">
         {renderStarRating(product.rating?.average || 0)}
       </div>
-      {/* <div className="product-actions">
-        <button
-          className={`btn success ${!product.inStock ? "disabled" : ""}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            product.inStock && addToCart(product);
-          }}
-          title={product.inStock ? "Add to Cart" : "Out of Stock"}
-          disabled={!product.inStock}
-        >
-          <FaShoppingCart className="icon" />
-          {product.inStock ? "Add to Cart" : "Out of Stock"}
-        </button>
-      </div> */}
     </motion.div>
   );
 };
