@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { motion } from "framer-motion";
 import {
@@ -15,8 +16,14 @@ import "../style/productcard.css";
 const ProductCard = ({ product }) => {
   const { addToCart, addToWishlist, removeFromWishlist, wishlistItems } =
     useContext(AppContext);
+  const navigate = useNavigate();
 
   const isWishlisted = wishlistItems.some((item) => item.id === product.id);
+
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   const renderStarRating = (rating) => {
     if (typeof rating !== "number") return null;
 
@@ -48,16 +55,19 @@ const ProductCard = ({ product }) => {
       className="product-card"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
+      onClick={handleCardClick}
+      style={{ cursor: "pointer" }}
     >
       <div className="product-img-container">
         <img src={product.image} alt={product.name} className="product-img" />
         <button
           className="wishlist-icon-top"
-          onClick={() =>
+          onClick={(e) => {
+            e.stopPropagation();
             isWishlisted
               ? removeFromWishlist(product.id)
-              : addToWishlist(product)
-          }
+              : addToWishlist(product);
+          }}
           title={isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
         >
           {isWishlisted ? <FaHeart className="wishlisted" /> : <FaRegHeart />}
@@ -83,7 +93,10 @@ const ProductCard = ({ product }) => {
       <div className="product-actions">
         <button
           className={`btn success ${!product.inStock ? "disabled" : ""}`}
-          onClick={() => product.inStock && addToCart(product)}
+          onClick={(e) => {
+            e.stopPropagation();
+            product.inStock && addToCart(product);
+          }}
           title={product.inStock ? "Add to Cart" : "Out of Stock"}
           disabled={!product.inStock}
         >
