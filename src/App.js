@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigation,
   useLocation,
 } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
@@ -14,6 +13,7 @@ import CartPage from "./pages/CartPage";
 import WishlistPage from "./pages/WishlistPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import NotFoundPage from "./pages/NotFoundPage"; // Import the new 404 page
 import { ToastContainer } from "react-toastify";
 import { ProductsProvider } from "./context/ProductsContext";
 import Loader from "./components/Loader";
@@ -116,6 +116,8 @@ function App() {
                     </RouteChangeHandler>
                   }
                 />
+                {/* 404 Route - catches all undefined routes */}
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </main>
             <Footer />
