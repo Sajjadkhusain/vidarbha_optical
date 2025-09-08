@@ -310,7 +310,31 @@
   margin: 0;
   opacity: 0.9;
 }
+/* // placeholder-fontSize */
+.form-textarea::placeholder {
+  font-family: "Your Desired Font", sans-serif;
+  font-size: 18px;
+  color: #999;
+  font-style: bold;
+}
 
+/* For browser compatibility */
+.form-textarea::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: "Your Desired Font", sans-serif;
+}
+.form-textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Your Desired Font", sans-serif;
+}
+.form-textarea:-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: "Your Desired Font", sans-serif;
+}
+.form-textarea:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Your Desired Font", sans-serif;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .checkout-container {
