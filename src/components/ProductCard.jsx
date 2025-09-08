@@ -90,7 +90,7 @@ const ProductCard = ({ product }) => {
       <div className="rating-container">
         {renderStarRating(product.rating?.average || 0)}
       </div>
-      <div className="product-actions">
+      {/* <div className="product-actions">
         <button
           className={`btn success ${!product.inStock ? "disabled" : ""}`}
           onClick={(e) => {
@@ -103,7 +103,7 @@ const ProductCard = ({ product }) => {
           <FaShoppingCart className="icon" />
           {product.inStock ? "Add to Cart" : "Out of Stock"}
         </button>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

@@ -132,7 +132,7 @@ export const products = [
   },
   {
     id: 9,
-    name: "Francis Silver Black Rectangle Sunglasses",
+    name: "Francis Silver Black",
     price: 500,
     originalPrice: 1100,
     description: "your vision with every environment",
