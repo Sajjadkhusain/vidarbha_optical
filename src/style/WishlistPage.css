@@ -1,5 +1,4 @@
 /* WishlistPage.css */
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -13,7 +12,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #e60023;
+  color: #121111;
 }
 
 .wishlist-icon {
@@ -22,13 +21,12 @@
 
 /* Empty wishlist card */
 .empty-card {
-  background-color: #fff;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 400px;
-  margin: 80px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .empty-heart-icon {
@@ -43,10 +41,10 @@
   color: #333;
 }
 
-.empty-card p {
+/* .empty-card p {
   font-size: 1rem;
   color: #777;
-}
+} */
 
 /* Product grid and cards */
 .grid {
@@ -134,7 +132,7 @@
 }
 .wish-title {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: #1a1a1a;

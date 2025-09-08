@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaArrowLeft } from "react-icons/fa";
+import { useNavigate, Link } from "react-router-dom";
 import "../style/WishlistPage.css";
 
 const WishlistPage = () => {
@@ -8,7 +9,10 @@ const WishlistPage = () => {
   const hasItems = wishlistItems.length > 0;
 
   return (
-    <div className="container">
+    <div className="empty-card">
+      <Link to="/" className="backtolist">
+        <FaArrowLeft />
+      </Link>
       {hasItems && (
         <h2 className="wishlist-title">
           <FaHeart className="wishlist-icon" />
@@ -17,7 +21,10 @@ const WishlistPage = () => {
       )}
 
       {!hasItems ? (
-        <div className="empty-card">
+        <div className="">
+          {/* <Link to="/" className="backtolist">
+            <FaArrowLeft />
+          </Link> */}
           <h2 className="wish-title">🖤 Your Wishlist</h2>
           <p className="wishlist-empty">Your wishlist is empty.</p>
         </div>
