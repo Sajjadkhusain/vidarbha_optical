@@ -8,15 +8,15 @@ import "../style/SortBar.css";
 
 const sortOptions = [
   { value: "default", label: "Default" },
-  { value: "low-to-high", label: "Low to High" },
-  { value: "high-to-low", label: "High to Low" },
+  { value: "low-to-high", label: "LOW TO HIGH" },
+  { value: "high-to-low", label: "HIGH TO LOW" },
 ];
 
 const genderOptions = [
   { value: "all", label: "All" },
-  { value: "men", label: "Men" },
-  { value: "women", label: "Women" },
-  { value: "child", label: "Child" },
+  { value: "men", label: "MEN" },
+  { value: "women", label: "WOMEN" },
+  { value: "child", label: "CHILD" },
 ];
 
 const HomePage = () => {
