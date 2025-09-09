@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/NotFoundPage.css";
-
+import { useParams, Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
@@ -13,6 +14,9 @@ const NotFoundPage = () => {
         <p className="error-message">
           The page you are looking for doesn't exist.
         </p>
+        <Link to="/" className="back-to-home-btn">
+          <FaArrowLeft /> Back to Home
+        </Link>
       </div>
     </div>
   );

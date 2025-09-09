@@ -63,10 +63,50 @@ const ProductDetailPage = () => {
     return (
       <div className="product-detail-container">
         <div className="product-not-found">
-          <h2>Product not found</h2>
-          <Link to="/" className="back-to-home">
-            <FaArrowLeft /> Back to Home
-          </Link>
+          <div className="not-found-content">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="not-found-icon"
+            >
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                  stroke="#dc3545"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M15 9L9 15"
+                  stroke="#dc3545"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M9 9L15 15"
+                  stroke="#dc3545"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </motion.div>
+            <h2>Product Not Found</h2>
+            <p>
+              We're sorry, but the product you're looking for doesn't exist or
+              may have been removed.
+            </p>
+            <Link to="/" className="back-to-home-btn">
+              <FaArrowLeft /> Back to Home
+            </Link>
+          </div>
         </div>
       </div>
     );
