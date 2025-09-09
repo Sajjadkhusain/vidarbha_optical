@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { products as productData } from "../data/products";
+import { reviews as allReviews } from "../data/customer_reivew";
 import {
   FaShoppingCart,
   FaHeart,
@@ -28,36 +29,16 @@ const ProductDetailPage = () => {
   } = useContext(AppContext);
 
   const product = productData.find((p) => p.id === parseInt(id));
+
+  // Get reviews for this specific product
+  const customerReviews = allReviews.filter(
+    (review) => review.productId === parseInt(id)
+  );
+
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [isZoomed, setIsZoomed] = useState(false);
-  const customerReviews = [
-    {
-      id: 1,
-      customerName: "Sajjad Husain khan",
-      rating: 4.5,
-      date: "2023-10-15",
-      comment:
-        "Great quality sunglasses! The UV protection is excellent and they look stylish.",
-    },
-    {
-      id: 2,
-      customerName: "Taha Sauban",
-      rating: 5,
-      date: "2023-10-10",
-      comment:
-        "Absolutely love these! Perfect fit and very comfortable to wear all day.",
-    },
-    {
-      id: 3,
-      customerName: "Mohammad Usama",
-      rating: 3.5,
-      date: "2023-10-05",
-      comment:
-        "Good sunglasses but could be more durable. The frame feels a bit fragile.",
-    },
-  ];
 
   if (!product) {
     return (
@@ -287,34 +268,40 @@ const ProductDetailPage = () => {
       {/* Customer Reviews Section */}
       <div className="customer-reviews-section">
         <h2 className="reviews-title">Customer Reviews</h2>
-        <div className="reviews-list">
-          {customerReviews.map((review) => (
-            <div key={review.id} className="review-card">
-              <div className="review-header">
-                <div className="reviewer-info">
-                  <div className="reviewer-avatar">
-                    <FaUser />
+        {customerReviews.length === 0 ? (
+          <div className="no-reviews">
+            <p>No reviews yet for this product.</p>
+          </div>
+        ) : (
+          <div className="reviews-list">
+            {customerReviews.map((review) => (
+              <div key={review.id} className="review-card">
+                <div className="review-header">
+                  <div className="reviewer-info">
+                    <div className="reviewer-avatar">
+                      <FaUser />
+                    </div>
+                    <div className="reviewer-details">
+                      <h4 className="reviewer-name">{review.customerName}</h4>
+                      {review.verified && (
+                        <span className="verified-buyer">Verified Buyer</span>
+                      )}
+                    </div>
                   </div>
-                  <div className="reviewer-details">
-                    <h4 className="reviewer-name">{review.customerName}</h4>
-                    {review.verified && (
-                      <span className="verified-buyer">Verified Buyer</span>
-                    )}
+                  <div className="review-date">
+                    {new Date(review.date).toLocaleDateString()}
                   </div>
                 </div>
-                <div className="review-date">
-                  {new Date(review.date).toLocaleDateString()}
+
+                <div className="review-rating">
+                  {renderStarRating(review.rating)}
                 </div>
-              </div>
 
-              <div className="review-rating">
-                {renderStarRating(review.rating)}
+                <p className="review-comment">{review.comment}</p>
               </div>
-
-              <p className="review-comment">{review.comment}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* <button className="view-all-reviews-btn">View All Reviews</button> */}
       </div>
